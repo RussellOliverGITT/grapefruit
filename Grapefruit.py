@@ -8,6 +8,7 @@ from osgeo import gdal,osr,ogr
 parser = argparse.ArgumentParser(prog="Grapefruit",description="Segments a image using either felzenszwalb or quickshift algorithim with the option of using a shapefile to mask. The ouput is saved as a shapefile")
 parser.add_argument("-inImg", help="this should be the path of the img to be segmented",required=True)
 parser.add_argument("-outDir", help="this should be the path of the output dir",required=True)
+parser.add_argument("-outName", help="this should be the name of the output file",required=True)
 parser.add_argument("-segType", type=int, help = "1 = felzenszwalb, 2 = quickshift", required=True)
 parser.add_argument("-maskShp", help="this should be the the path of the mask shapefile if one is to be used")
 parser.add_argument("-minSize", type=int, help = "a integer for the minimum pixel size", required=True)
@@ -109,7 +110,7 @@ def runFelzenszwalb():
 	if args.maskShp is not None:
 		segments=numpy.multiply(segments, getMaskArray(args.inImg,args.maskShp))
 	#write out to shpfile
-	writeSegmentsToShapefile(segments, args.inImg, args.minSize, args.outDir + "\\Felzenszwalb.shp")
+	writeSegmentsToShapefile(segments, args.inImg, args.minSize, args.outDir + "\\" + args.outName + ".shp")
 
 def runQuickshift():
 	inputValidation = True
@@ -138,7 +139,7 @@ def runQuickshift():
 	if args.maskShp is not None:
 		segments=numpy.multiply(segments, getMaskArray(args.inImg,args.maskShp))
 	#write out to shpfile
-	writeSegmentsToShapefile(segments, args.inImg, args.minSize, args.outDir + "\\Quickshift.shp")
+	writeSegmentsToShapefile(segments, args.inImg, args.minSize, args.outDir + "\\" + args.outName + ".shp")
 
 if __name__ == "__main__":
 
