@@ -1,5 +1,5 @@
-<b>Prerequisites</b> 
-Python
-GDAL for python
-Python libaries numpy and scikit-image
+<b>Prerequisites</b><br>
+Python<br>
+GDAL for python<br>
+Python libaries numpy and scikit-image<br>
 
