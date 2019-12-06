@@ -1,7 +1,7 @@
 <b>Prerequisites</b><br>
-            Python<br>
- GDAL for python<br>
- Python libaries numpy and scikit-image<br>
+Python<br>
+GDAL for python<br>
+Python libaries numpy and scikit-image<br>
 <br>
 <br>
 <b>Parameters</b><br>
@@ -26,5 +26,16 @@ Required for quickshift<br>
 -qRNG, a integer for quickshift random_seed param<br>
 <br>
 Optional<br>
--maskShp, this should be the the path of the mask shapefile if one is to be used
-
+-maskShp, this should be the the path of the mask shapefile if one is to be used<br>
+<br>
+<br>
+<b>Examples</b><br>
+<br>
+Felzenszwalb<br>
+python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 1 -minSize 15 -sigma 0.3 -outName segments -fScale 150 -fMulti True<br>
+<br>
+Quickshift<br>
+python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 2 -minSize 15 -sigma 0.3 -outName segments -qRatio 0.5 -qKSize 1 -qMaxD 10 -qConToLab False -qRNG 42<br>
+<br>
+felzenszwalb with shape file<br>
+python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 1 -minSize 15 -sigma 0.3 -outName segments -fScale 150 -fMulti True -maskShp /Path/To/My/Mask.shp<br>
