@@ -40,5 +40,5 @@ python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 1
 Quickshift<br>
 python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 2 -minSize 15 -sigma 0.3 -outName segments -qRatio 0.5 -qKSize 1 -qMaxD 10 -qConToLab False -qRNG 42<br>
 <br>
-felzenszwalb with shape file<br>
+Felzenszwalb with shape file<br>
 python Grapefruit.py -inImg /Path/To/My.img -outDir /My/Output/Folder -segType 1 -minSize 15 -sigma 0.3 -outName segments -fScale 150 -fMulti True -maskShp /Path/To/My/Mask.shp<br>
