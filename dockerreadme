@@ -1,0 +1,44 @@
+<b>About</b><br>
+Grapefruit contains a script and libraries for geospatial image segmentation using either felzenszwalb or quickshift algorithim.<br>
+<br>
+<b>Usage</b><br>
+<br>
+To get details of the script parametes run the command<br>
+sudo docker run --rm ussellolivergitt/grapefruit:latest python Grapefruit.py -h<br>
+<br>
+To run a felzenszwalb segmentation run a command similar to<br>
+sudo docker run --rm -v /home/username/Documents/:/Documents russellolivergitt/grapefruit:latest python Grapefruit.py -inImg /Documents/inputImage.img -outDir /Documents/out -segType 1 -minSize 15 -sigma 0.3 -outName segments -fScale 150 -fMulti True <br>
+<br>
+To run a felzenszwalb segmentation with a mask shape file run a command similar to<br>
+sudo docker run --rm -v /home/username/Documents/:/Documents russellolivergitt/grapefruit:latest python Grapefruit.py -inImg /Documents/inputImage.img -outDir /Documents/out -segType 1 -minSize 15 -sigma 0.3 -outName segments -fScale 150 -fMulti True -maskShp /Documents/maskFile.shp<br>
+<br>
+To run a quickshift segmentation run a command similar to<br>
+sudo docker run --rm -v /home/username/Documents/:/Documents russellolivergitt/grapefruit:latest python Grapefruit.py -inImg /Documents/inputImage.img -outDir /Documents/out -segType 2 -minSize 15 -sigma 0.3 -outName segments -qRatio 0.5 -qKSize 1 -qMaxD 10 -qConToLab False -qRNG 42<br>
+<br>
+To run a quickshift  segmentation with a mask shape file run a command similar to<br>
+sudo docker run --rm -v /home/username/Documents/:/Documents russellolivergitt/grapefruit:latest python Grapefruit.py -inImg /Documents/inputImage.img -outDir /Documents/out -segType 2 -minSize 15 -sigma 0.3 -outName segments -qRatio 0.5 -qKSize 1 -qMaxD 10 -qConToLab False -qRNG 42 -maskShp /Documents/maskFile.shp<br>
+<br>
+<b>Parameters</b><br>
+<br>
+Required<br>
+-inImg, this should be the path of the img to be segmented<br>
+-outDir, this should be the path of the output dir<br>
+-outName, this should be the name of the output file<br>
+-segType, 1 = felzenszwalb, 2 = quickshift<br>
+-minSize, a integer for the minimum pixel size<br>
+-sigma, a float for the sigma<br>
+<br>
+Required for felzenszwalb<br>
+-fScale, a float for felzenszwalb scale param<br>
+-fMulti, a boolean for felzenszwalb multichannelbool param<br>
+<br>
+Required for quickshift<br>
+-qRatio, a float for quickshift ratio param between 0 and 1<br>
+-qKSize, a float for quickshift kernel_size param<br>
+-qMaxD, a float for quickshift max_dist param<br>
+-qConToLab, a boolean for quickshift convert2lab param<br>
+-qRNG, a integer for quickshift random_seed param<br>
+<br>
+Optional<br>
+-maskShp, this should be the the path of the mask shapefile if one is to be used<br>
+
