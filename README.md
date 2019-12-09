@@ -1,3 +1,6 @@
+<b>About</b><br>
+Grapefruit is a script for geospatial image segmentation using either felzenszwalb or quickshift algorithim.<br>
+<br>
 <b>Prerequisites</b><br>
 Python<br>
 GDAL for python<br>
